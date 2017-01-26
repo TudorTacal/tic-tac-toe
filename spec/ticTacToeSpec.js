@@ -34,9 +34,14 @@ describe('TicTacToe', function (){
     });
   });
   describe('#endGame', function (){
-    it('if all fields are claimed', function (){
-      game.board.fields = [[['X'],['O'],['X']],[['O'],['O'],['X']],[['X'],['X'],['O']]];
+    it('it ends the game if all fields are claimed', function (){
+      game.board.fields = [['X','O','X'],['O','O','X'],['X','X','O']];
       expect(game.endGame()).toEqual('Game over');
     });
+    it('it displays a message to Kepp Playing if all the fileds are not claimed', function (){
+      game.board.fields = [['X','O','X'],['O','O','X'],['X','X',[]]];
+      expect(game.endGame()).toEqual('Keep playing');
+    });
+
   });
 });

@@ -18,11 +18,11 @@ describe("Board", function(){
   describe('#allFieldsPopulated', function () {
     it('return true if all the fields are populated', function (){
       board.fields = [[['X'],['O'],['X']],[['O'],['O'],['X']],[['X'],['X'],['O']]];
-      expect(board.allFieldsPopulated()).toBeTruthy();
+      expect(board.allFieldsPopulated(board.fields)).toBeTruthy();
     });
-    it('return false if all the fields are not pppulated', function (){
+    it('return false if all the fields are not populated', function (){
       board.fields = [[['X'],['O'],['X']],[['O'],['O'],['X']],[['X'],['X'],[]]];
-      expect(board.allFieldsPopulated()).toBeFalsy();
+      expect(board.allFieldsPopulated(board.fields)).toBeFalsy();
     });
 
   });
