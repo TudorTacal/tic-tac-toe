@@ -39,8 +39,9 @@ describe('TicTacToe', function (){
       expect(game.endGame()).toEqual('Game over');
     });
     it('it displays a message to Kepp Playing if all the fileds are not claimed', function (){
-      game.board.fields = [['X','O','X'],['O','O','X'],['X','X',[]]];
+      game.board.fields = [['X','O','X'],['O','O','X'],['X','X',0]];
       expect(game.endGame()).toEqual('Keep playing');
+
     });
   });
   describe('#checkWinner', function () {
@@ -58,7 +59,7 @@ describe('TicTacToe', function (){
       game.claimField(2,1);
       game.claimField(2,3);
       game.claimField(3,1);
-      expect(game.checkWinner()).toEqual("You won")
+      expect(game.checkWinner()).toEqual("You won");
     });
   });
 });
