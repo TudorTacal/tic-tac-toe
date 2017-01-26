@@ -8,6 +8,7 @@ var TicTacToe = function () {
 
 TicTacToe.prototype.claimField = function(row,column,value=this.changeTurns()) {
   this.board.populateFields(row,column,value);
+  this.checkWinner();
   this.endGame();
 };
 
@@ -25,6 +26,19 @@ TicTacToe.prototype.endGame = function () {
     return "Keep playing";
   }
 };
+var fields,row, columns, diagonals;
+TicTacToe.prototype.checkWinner = function () {
+  columns = this._getColumsFromFieldsArray;
+  diagonals = [];
+  fields = this.board.fields;
+  for(var i=0; i<fields.length;i++){
+    row = fields[i];
+    columns[i].push(row[0],row[1],row[2]);
+    if(row.allValuesSame()) return ('You won');
+  }
+  if(columns.allValuesSame()) return('You won');
+  
+};
 
 TicTacToe.prototype._fullFields = function () {
   var flattenedArray = [].concat.apply([], this.board.fields);
@@ -34,4 +48,22 @@ TicTacToe.prototype._fullFields = function () {
   } else {
     return false;
   }
+};
+
+TicTacToe.prototype._getColumsFromFieldsArray = function () {
+  var columns = [];
+  var fieldsArray = this.board.fields;
+  for(var i = 0; i < fieldsArray.length; i ++ ) {
+    var column = fieldsArray.map(function(value,index) { return value[2]; });
+    columns.push(column);
+  }
+  return columns;
+};
+
+Array.prototype.allValuesSame = function () {
+  for(var i = 1; i< this.length; i++) {
+    if(this[i] !== this[0])
+      return false;
+  }
+  return true;
 };

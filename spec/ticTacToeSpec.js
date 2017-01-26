@@ -42,6 +42,23 @@ describe('TicTacToe', function (){
       game.board.fields = [['X','O','X'],['O','O','X'],['X','X',[]]];
       expect(game.endGame()).toEqual('Keep playing');
     });
-
+  });
+  describe('#checkWinner', function () {
+    it('checks if there any 3 consecutive marks on any row and displays the winner', function (){
+      game.claimField(1,1);
+      game.claimField(3,3);
+      game.claimField(1,2);
+      game.claimField(2,3);
+      game.claimField(1,3);
+      expect(game.checkWinner()).toEqual("You won")
+    });
+    it('checks if there any 3 consecutive marks on any column and displays the winner', function (){
+      game.claimField(1,1);
+      game.claimField(3,3);
+      game.claimField(2,1);
+      game.claimField(2,3);
+      game.claimField(3,1);
+      expect(game.checkWinner()).toEqual("You won")
+    });
   });
 });
