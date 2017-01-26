@@ -18,13 +18,8 @@ TicTacToe.prototype.changeTurns = function () {
 };
 
 TicTacToe.prototype.endGame = function () {
-  if (this._fullFields()) {
-    console.log("Game over");
-    return "Game over";
-  } else {
-    console.log("Keep playing");
-    return "Keep playing";
-  }
+  if (this._fullFields()) return "Game over";
+  if (!this._fullFields())return "Keep playing";
 };
 
 TicTacToe.prototype.checkWinner = function () {
@@ -48,11 +43,8 @@ TicTacToe.prototype.checkWinner = function () {
 TicTacToe.prototype._fullFields = function () {
   var flattenedArray = [].concat.apply([], this.board.fields);
   var elementsArray = flattenedArray.filter(function(element){return typeof(element) === "string";});
-  if (elementsArray.length === 9) {
-    return true;
-  } else {
-    return false;
-  }
+  if (elementsArray.length === 9) return true;
+  if (elementsArray.length !== 9) return false;
 };
 
 TicTacToe.prototype._getColumsFromFieldsArray = function () {
@@ -64,9 +56,6 @@ TicTacToe.prototype._getColumsFromFieldsArray = function () {
   }
   return columns;
 };
-
-
-
 
 Array.prototype.allValuesSame = function () {
   for(var i = 1; i< this.length; i++) {
