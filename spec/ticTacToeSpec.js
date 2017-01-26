@@ -21,19 +21,16 @@ describe('TicTacToe', function (){
   });
   describe('#changeTurns', function (){
     it('player1 starts first with X', function (){
-      game.claimField(1,1);
-      expect(game.board.fields[0][0]).toEqual('X');
+      expect(game.changeTurns()).toEqual('X');
     });
     it('player2 follows with O', function (){
-      game.claimField(1,2);
-      game.claimField(1,3);
-      expect(game.board.fields[0][2]).toEqual('O');
+      game.changeTurns();
+      expect(game.changeTurns()).toEqual('O');
     });
     it('player1 follows again with X', function (){
-      game.claimField(1,2);
-      game.claimField(1,3);
-      game.claimField(3,3);
-      expect(game.board.fields[2][2]).toEqual('X');
+      game.changeTurns();
+      game.changeTurns();
+      expect(game.changeTurns()).toEqual('X');
     });
   });
 });
