@@ -3,16 +3,14 @@ var TicTacToe = function () {
   this.player1 = new Player('X');
   this.player2 = new Player('O');
   this.board = new Board();
-  this.mark = 'X';
+  this.marks = [this.player2.mark, this.player1.mark];
 };
 
-TicTacToe.prototype.claimField = function(row,column,value=this.mark) {
+TicTacToe.prototype.claimField = function(row,column,value=this.changeTurns()) {
   this.board.populateFields(row,column,value);
-  this.changeTurns();
 };
-var players;
+
 TicTacToe.prototype.changeTurns = function () {
-  players = [this.player1.mark, this.player2.mark];
-  players.reverse();
-  this.mark = players[0];
+  this.marks.reverse();
+  return this.marks[0];
 };

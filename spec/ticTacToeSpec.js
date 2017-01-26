@@ -29,5 +29,11 @@ describe('TicTacToe', function (){
       game.claimField(1,3);
       expect(game.board.fields[0][2]).toEqual('O');
     });
+    it('player1 follows again with X', function (){
+      game.claimField(1,2);
+      game.claimField(1,3);
+      game.claimField(3,3);
+      expect(game.board.fields[2][2]).toEqual('X');
+    });
   });
 });
