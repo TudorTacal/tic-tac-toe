@@ -3,7 +3,7 @@ describe('TicTacToe', function (){
   beforeEach(function (){
     game = new TicTacToe();
   });
-  it('TicTacToe is defined', function (){
+  it('is defined', function (){
     expect(TicTacToe).toBeDefined();
   });
   it('has two players', function (){
