@@ -51,7 +51,7 @@ describe('TicTacToe', function (){
       game.claimField(1,2);
       game.claimField(2,3);
       game.claimField(1,3);
-      expect(game.checkWinner()).toEqual("You won")
+      expect(game.checkWinner()).toEqual("You won");
     });
     it('checks if there any 3 consecutive marks on any column and displays the winner', function (){
       game.claimField(1,1);
@@ -59,6 +59,7 @@ describe('TicTacToe', function (){
       game.claimField(2,1);
       game.claimField(2,3);
       game.claimField(3,1);
+      // debugger
       expect(game.checkWinner()).toEqual("You won");
     });
   });
