@@ -11,7 +11,7 @@ describe('TicTacToe', function (){
     expect(game.player2).toEqual(jasmine.any(Player));
   });
   it('has a board', function(){
-    expect(this.board).toEqual(jasmine.any(Board));
+    expect(game.board).toEqual(jasmine.any(Board));
   });
 
 });
