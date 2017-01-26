@@ -13,5 +13,11 @@ describe('TicTacToe', function (){
   it('has a board', function(){
     expect(game.board).toEqual(jasmine.any(Board));
   });
+  describe('#claimField', function (){
+    it('claims a field by specifing its location', function(){
+        game.claimField(1,1);
+        expect(game.board.fields[0][0]).toEqual('X');
+    });
+  });
 
 });

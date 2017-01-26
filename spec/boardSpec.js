@@ -6,4 +6,13 @@ describe("Board", function(){
   it('is defined', function (){
     expect(Board).toBeDefined();
   });
+  it('has a 3 x 3 multidimensional array', function (){
+    expect(board.fields).toEqual([[[],[],[]],[[],[],[]],[[],[],[]]]);
+  });
+  describe('#populateFields', function() {
+    it ('inserts the X or O values into the fields array at the specified position', function (){
+      board.populateFields(1,1,'X');
+      expect(board.fields[0][0]).toEqual('X');
+    });
+  });
 });
