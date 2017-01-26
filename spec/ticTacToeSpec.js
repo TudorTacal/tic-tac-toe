@@ -59,7 +59,14 @@ describe('TicTacToe', function (){
       game.claimField(2,1);
       game.claimField(2,3);
       game.claimField(3,1);
-      // debugger
+      expect(game.checkWinner()).toEqual("You won");
+    });
+    it('checks if there any 3 consecutive marks on any diagonal and displays the winner', function (){
+      game.claimField(1,1);
+      game.claimField(3,3);
+      game.claimField(2,2);
+      game.claimField(2,3);
+      game.claimField(3,3);
       expect(game.checkWinner()).toEqual("You won");
     });
   });
