@@ -7,7 +7,11 @@ describe('TicTacToe', function (){
     expect(TicTacToe).toBeDefined();
   });
   it('has two players', function (){
-    expect(game.player1).toBeDefined();
-    expect(game.player2).toBeDefined();
+    expect(game.player1).toEqual(jasmine.any(Player));
+    expect(game.player2).toEqual(jasmine.any(Player));
   });
+  it('has a board', function(){
+    expect(this.board).toEqual(jasmine.any(Board));
+  });
+
 });
