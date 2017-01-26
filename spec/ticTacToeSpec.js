@@ -15,7 +15,7 @@ describe('TicTacToe', function (){
   });
   describe('#claimField', function (){
     it('claims a field by specifing its location', function(){
-        game.claimField(1,1,'X');
+        game.claimField(1,1);
         expect(game.board.fields[0][0]).toEqual('X');
     });
   });
@@ -31,6 +31,12 @@ describe('TicTacToe', function (){
       game.changeTurns();
       game.changeTurns();
       expect(game.changeTurns()).toEqual('X');
+    });
+  });
+  describe('#endGame', function (){
+    it('if all fields are claimed', function (){
+      game.board.fields = [[['X'],['O'],['X']],[['O'],['O'],['X']],[['X'],['X'],['O']]];
+      expect(game.endGame()).toEqual('Game over');
     });
   });
 });

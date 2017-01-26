@@ -15,4 +15,15 @@ describe("Board", function(){
       expect(board.fields[0][0]).toEqual('X');
     });
   });
+  describe('#allFieldsPopulated', function () {
+    it('return true if all the fields are populated', function (){
+      board.fields = [[['X'],['O'],['X']],[['O'],['O'],['X']],[['X'],['X'],['O']]];
+      expect(board.allFieldsPopulated()).toBeTruthy();
+    });
+    it('return false if all the fields are not pppulated', function (){
+      board.fields = [[['X'],['O'],['X']],[['O'],['O'],['X']],[['X'],['X'],[]]];
+      expect(board.allFieldsPopulated()).toBeFalsy();
+    });
+
+  });
 });
