@@ -26,10 +26,7 @@ TicTacToe.prototype.checkWinner = function () {
   var fieldsArray = this.board.fields;
   var columns = this._getColumsFromFieldsArray();
   var diagonals = [[fieldsArray[0][0],fieldsArray[1][1],fieldsArray[2][2]],[fieldsArray[0][2],fieldsArray[1][1],[fieldsArray[2][0]]]];
-  for(var i = 0; i < fieldsArray.length; i++){
-    var row = fieldsArray[i];
-    if(row.allValuesSame()) return ('You won');
-  }
+  if (this._checkRowMarks()) return this._declareWinner();
   for(var j = 0; j < columns.length; j++) {
     var column = columns[j];
     if(column.allValuesSame()) return('You won');
@@ -55,6 +52,18 @@ TicTacToe.prototype._getColumsFromFieldsArray = function () {
     columns.push(column);
   }
   return columns;
+};
+
+TicTacToe.prototype._checkRowMarks = function () {
+  var fieldsArray = this.board.fields;
+  for(var i = 0; i < fieldsArray.length; i++){
+    var row = fieldsArray[i];
+    if(row.allValuesSame()) return true
+  }
+};
+
+TicTacToe.prototype._declareWinner = function () {
+  return 'You won'
 };
 
 Array.prototype.allValuesSame = function () {
