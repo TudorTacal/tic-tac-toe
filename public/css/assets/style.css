@@ -2,3 +2,10 @@
   color: grey;
   text-align: center;
 }
+#table {
+  text-align: center;
+  float: center;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+}
